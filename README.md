@@ -1,2 +1,2 @@
 # frhs-snhs
- NEW Automation for frhs-snhs.
+Automation for frhs-snhs.
