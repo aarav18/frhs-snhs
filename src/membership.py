@@ -1,3 +1,5 @@
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from lib.dependencies import *
 
 MEMBERSHIP_SHEET_ID = "17p_QT9geS-OjS_jJnG5d6-PlOxaycaKZDbhYI_vAtKk"
@@ -13,6 +15,6 @@ def get_members_ids(service: Any) -> list[int]:
 
 
 if __name__ == "__main__": 
-    service = util.build_service()
+    service = util.build_sheets_service()
     print(get_members_ids(service=service))
     

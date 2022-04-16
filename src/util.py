@@ -11,11 +11,11 @@ from googleapiclient.errors import HttpError
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly", "https://www.googleapis.com/auth/spreadsheets"]
 
-def build_service() -> Any:
+def build_sheets_service() -> Any:
   creds = None
     
-  if os.path.exists("auth/token.json"):
-      creds = Credentials.from_authorized_user_file("auth/token.json", SCOPES)
+  if os.path.exists("auth/sheets_token.json"):
+      creds = Credentials.from_authorized_user_file("auth/sheets_token.json", SCOPES)
       
   if not creds or not creds.valid:
       if creds and creds.expired and creds.refresh_token:
@@ -25,12 +25,47 @@ def build_service() -> Any:
               "auth/credentials.json", SCOPES)
           creds = flow.run_local_server(port=0)
           
-      with open("auth/token.json", "w") as token:
+      with open("auth/sheets_token.json", "w") as token:
           token.write(creds.to_json())
 
   try:
       service = build("sheets", "v4", credentials=creds)
       return service
+  except HttpError as err:
+    print(err)
+    quit()
+
+def build_drive_service() -> Any:
+  creds = None
+    
+  if os.path.exists("auth/drive_token.json"):
+      creds = Credentials.from_authorized_user_file("auth/drive_token.json", SCOPES)
+      
+  if not creds or not creds.valid:
+      if creds and creds.expired and creds.refresh_token:
+          creds.refresh(Request())
+      else:
+          flow = InstalledAppFlow.from_client_secrets_file(
+              "auth/credentials.json", SCOPES)
+          creds = flow.run_local_server(port=0)
+          
+      with open("auth/drive_token.json", "w") as token:
+          token.write(creds.to_json())
+
+  try:
+      service = build("drive", "v3", credentials=creds)
+              # Call the Drive v3 API
+      results = service.files().list(
+          pageSize=10, fields="nextPageToken, files(id, name)").execute()
+      items = results.get("files", [])
+
+      if not items:
+          print("No files found.")
+          return
+      print("Files:")
+      for item in items:
+          print(u"{0} ({1})".format(item["name"], item["id"]))
+      # return service
   except HttpError as err:
     print(err)
     quit()
