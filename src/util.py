@@ -1,4 +1,5 @@
 from __future__ import print_function
+from email.policy import default
 
 import os.path
 from typing import Any
@@ -9,7 +10,13 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly", "https://www.googleapis.com/auth/spreadsheets"]
+SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly", 
+          "https://www.googleapis.com/auth/spreadsheets",
+          "https://www.googleapis.com/auth/drive.metadata", 
+          "https://www.googleapis.com/auth/drive.metadata.readonly", 
+          "https://www.googleapis.com/auth/drive", 
+          "https://www.googleapis.com/auth/drive.file",
+          "https://www.googleapis.com/auth/iam"]
 
 def build_sheets_service() -> Any:
   creds = None
@@ -19,6 +26,9 @@ def build_sheets_service() -> Any:
       
   if not creds or not creds.valid:
       if creds and creds.expired and creds.refresh_token:
+          # user_cred, _ = default()
+          # credentials = Credentials(user_cred, scopes=SCOPES)
+          # credentials._source_credentials._scopes = user_cred.scopes
           creds.refresh(Request())
       else:
           flow = InstalledAppFlow.from_client_secrets_file(
@@ -37,10 +47,9 @@ def build_sheets_service() -> Any:
 
 def build_drive_service() -> Any:
   creds = None
-    
+
   if os.path.exists("auth/drive_token.json"):
       creds = Credentials.from_authorized_user_file("auth/drive_token.json", SCOPES)
-      
   if not creds or not creds.valid:
       if creds and creds.expired and creds.refresh_token:
           creds.refresh(Request())
@@ -54,20 +63,9 @@ def build_drive_service() -> Any:
 
   try:
       service = build("drive", "v3", credentials=creds)
-              # Call the Drive v3 API
-      results = service.files().list(
-          pageSize=10, fields="nextPageToken, files(id, name)").execute()
-      items = results.get("files", [])
-
-      if not items:
-          print("No files found.")
-          return
-      print("Files:")
-      for item in items:
-          print(u"{0} ({1})".format(item["name"], item["id"]))
-      # return service
-  except HttpError as err:
-    print(err)
+      return service
+  except HttpError as error:
+    print(error)
     quit()
 
 def read_cells(service: Any, sheet_id: str, sheet_range: str) -> list[Any]:
