@@ -33,7 +33,7 @@ def get_attendance_status() -> list[bool]:
 
 if __name__ == "__main__": 
     
-    service = util.build_service()
+    service = util.build_sheets_service()
     member_ids = get_members_ids(service=service)
     attendance_ids = get_attendance_ids(service=service)
     attendance_status = get_attendance_status()
