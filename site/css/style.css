@@ -81,6 +81,7 @@ code, pre {
   background-color: var(--primary-color);
   color: #fff;
   height: 70px;
+  /* animation: slideInFromTop 1s ease-in; */
 }
 
 .navbar ul {
@@ -93,26 +94,68 @@ code, pre {
   margin: 0 5px;
 }
 
-.navbar a:hover {
+/* .navbar a:hover {
   border-bottom: 2px #fff solid;
-}
+} */
 
 .navbar .flex {
   justify-content: space-between;
 }
 
-/* .navbar .grid {
-  overflow: visible;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-} */
-
-.sliding-border {
-  
+.home-link > .sliding-border {
+  margin: 6px 6px;
   background-color: white;
-  width: 50px;
-  height: 5px;
-  align-self: flex-end;
+  width: 0px;
+  height: 2px;
+  transition: all 0.5s ease-in;
+}
+
+.features-link .sliding-border {
+  margin: 6px 6px;
+  background-color: white;
+  width: 0px;
+  height: 2px;
+  transition: all 0.5s ease-in;
+}
+
+.docs-link .sliding-border {
+  margin: 6px 6px; 
+  background-color: white;
+  width: 0px;
+  height: 2px;
+  transition: all 0.5s ease-in;
+}
+
+.home-link:hover > .sliding-border {
+  width: 59px;
+}
+
+.features-link:hover > .sliding-border {
+  width: 78px;
+}
+
+.docs-link:hover > .sliding-border {
+  width: 53px;
+}
+
+@keyframes slideBorderOut {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 60px;
+  }
+}
+
+@keyframes slideBorderIn {
+  0% {
+    width: 60px;
+  }
+
+  100% {
+    width: 0px;
+  }
 }
 
 /* showcase */
@@ -228,7 +271,7 @@ code, pre {
 .languages .card {
   text-align: center;
   margin: 18px 10px 40px;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.5s ease-in;
 }
 
 .languages .card h4 {
