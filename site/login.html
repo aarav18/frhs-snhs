@@ -11,13 +11,21 @@
   <link rel="stylesheet" href="css/login.css"/>
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  
+  <script src="https://apis.google.com/js/platform.js"></script>
+
+
   <script src="js/reload.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/redirect.js"></script>
+
+  <script src="js/login.js"></script>
 
 
   <title>Login • FRHS SNHS</title>
   <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="400237668286-4l755cng626bfg4pp3qcf3d2hh0ffg36.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
   
@@ -29,32 +37,34 @@
       <div class="login-text">
         <h1>Welcome SNHS Board</h1>
         <p>Here you can find automation tools for attendance, good standing, and more.</p>
-      </div>
+      <!-- </div> -->
 
-      <div class="login-form card">
-        <h2>Login With FRHS SNHS</h2>
+      <!-- <div class="login-form card"> -->
+        <!-- <h2>Login</h2> -->
 
-        <input type="email" class="login-input" placeholder="Email" autocomplete="off">
-        <input type="text" class="login-input" placeholder="Password" autocomplete="off">
-        <input type="submit" value="Login" class="btn btn-primary" autocomplete="off">
+        <!-- <input type="email" class="login-input" placeholder="Email" autocomplete="off">
+        <input type="text" class="login-input" placeholder="Password" autocomplete="off"> -->
+      <div class="card incorrect-login"></div>
+      <button id="signin-button" data-onsuccess="onSignIn" data-theme="light" class="btn btn-primary"><i class="fa-brands fa-google"></i>Login</button>
+        <!-- <input type="submit" value="Login" class="btn btn-primary" autocomplete="off"> -->
 
-        <script src="https://accounts.google.com/gsi/client" async defer></script>
-        <div id="g_id_onload"
-           data-client_id="400237668286-4l755cng626bfg4pp3qcf3d2hh0ffg36.apps.googleusercontent.com"
-           data-context="signin"
-           data-ux_mode="popup"
-           data-login_uri="http://localhost:5500/site/login.html"
-           data-auto_prompt="false">
-        </div>
-        <div class="g_id_signin"
-           data-type="standard"
-           data-shape="rectangular"
-           data-theme="outline"
-           data-text="sign_in_with"
-           data-size="large"
-           data-locale="en-US"
-           data-logo_alignment="left">
-        </div>
+        <!-- <div id="signin-button" class="g-signin2" data-onsuccess="onSignIn" data-theme="light"></div> -->
+        <!-- <script>
+          function onSignIn(googleUser) {
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+    
+            // The ID token you need to pass to your backend:
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+          }
+        </script> -->
         <!-- <form autocomplete="off">
           <div class="form-control">
             <input type="email" name="email" placeholder="Email*" required>
@@ -65,7 +75,7 @@
           <input type="submit" value="Send" class="btn btn-primary">
         </form> -->
 
-      </div>
+      <!-- </div> -->
 
     </div>
 
