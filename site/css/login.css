@@ -17,6 +17,10 @@
   margin: 0;
 }
 
+.no-js {
+  display: none !important;
+}
+
 html {
   overflow-y: hidden;
   overflow-x: hidden;
