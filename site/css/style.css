@@ -158,6 +158,10 @@ code, pre {
   }
 }
 
+.sign-out {
+  border: 5px solid white;
+}
+
 /* showcase */
 .showcase {
   height: 400px;

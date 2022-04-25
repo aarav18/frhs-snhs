@@ -1,7 +1,8 @@
 document.documentElement.classList.remove("no-js");
 
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
-  location.href = "/site/login.html";
+  // location.href = "/site/login.html";
+  location.href = "/login";
 }
 
 var auth2;
@@ -42,13 +43,14 @@ var onSuccess = function(user) {
 };
 
 var onFailure = function(error) {
-    console.log(error);
+  console.log(error);
 };
 
 function signOut() {
-    auth2.signOut().then(function () {
-        console.log("User signed out.");
-    });
+  console.log("Start Sign Out");
+  auth2.signOut().then(function () {
+      console.log("User signed out.");
+  });
 }        
 
 var userChanged = function (user) {
@@ -56,3 +58,6 @@ var userChanged = function (user) {
       // Do something here
     }
 };
+
+// document.getElementsByClassName("sign-out").onclick = function() {signOut()}
+document.getElementsByClassName("sign-out").addEventListener("click", signOut);
