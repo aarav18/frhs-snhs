@@ -62,4 +62,4 @@ var userChanged = function (user) {
 };
 
 // document.getElementsByClassName("sign-out").onclick = function() {signOut()}
-document.getElementsByClassName("sign-out").addEventListener("click", signOut);
+// document.getElementsByClassName("sign-out").addEventListener("click", signOut);
