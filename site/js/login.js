@@ -28,10 +28,12 @@ var onSuccess = function(user) {
     var sessionTimeout = 1; //hours
     var loginDuration = new Date();
     loginDuration.setTime(loginDuration.getTime()+(sessionTimeout*60*60*1000));
-    document.cookie = "CrewCentreSession=Valid; "+loginDuration.toGMTString()+"; path=/site/";
+    // document.cookie = "CrewCentreSession=Valid; "+loginDuration.toGMTString()+"; path=/site/";
+    document.cookie = "CrewCentreSession=Valid; "+loginDuration.toGMTString()+"; path=/";
     
     if (user.getBasicProfile().getName() == "FRHS SNHS") {
-      location.replace(location.href.split("/login.html")[0] + "/home.html");
+      // location.replace(location.href.split("/login.html")[0] + "/home.html");
+      location.replace(location.href.split("/login")[0] + "/home");
     } else {
       console.log("Wrong Google Address for Sign In");
     }
