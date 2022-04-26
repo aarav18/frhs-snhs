@@ -3,6 +3,6 @@ function signOut() {
   window.location.href = "https://aarav18-snhs.netlify.app/login.html";
 }
 
-document.getElementsByClassName("sign-out").onclick = function() {
+document.getElementsByClassName("sign-out").onmousedown = function() {
   signOut();
 }
