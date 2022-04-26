@@ -26,8 +26,13 @@ function handleCredentialResponse(response) {
   var loginDuration = new Date();
   loginDuration.setTime(loginDuration.getTime()+(sessionTimeout*60*60*1000));
   document.cookie = "CrewCentreSession=Valid; "+loginDuration.toGMTString()+"; path=/";
-  
+
   window.location.href = "https://aarav18-snhs.netlify.app/home.html";
+}
+
+export function signOut() {
+  document.cookie = document.cookie.replace("CrewCentreSession=Valid", "");
+  window.location.href = "https://aarav18-snhs.netlify.app/login.html";
 }
 
 window.onload = function () {
