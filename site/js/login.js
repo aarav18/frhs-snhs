@@ -30,21 +30,23 @@ function handleCredentialResponse(response) {
   window.location.href = "https://aarav18-snhs.netlify.app/home.html";
 }
 
+if (window.location.href == "https://aarav18-snhs.netlify.app/login.html") {
+  window.onload = function () {
+    google.accounts.id.initialize({
+      client_id: "400237668286-4l755cng626bfg4pp3qcf3d2hh0ffg36.apps.googleusercontent.com",
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("google-signin"),
+      { theme: "outline", 
+        size: "large"
+      }  // customization attributes
+    );
+  }
+  // google.accounts.id.prompt(); // also display the One Tap dialog
+}
+
 export function signOut() {
   document.cookie = document.cookie.replace("CrewCentreSession=Valid", "");
   window.location.href = "https://aarav18-snhs.netlify.app/login.html";
-}
-
-window.onload = function () {
-  google.accounts.id.initialize({
-    client_id: "400237668286-4l755cng626bfg4pp3qcf3d2hh0ffg36.apps.googleusercontent.com",
-    callback: handleCredentialResponse
-  });
-  google.accounts.id.renderButton(
-    document.getElementById("google-signin"),
-    { theme: "outline", 
-      size: "large"
-    }  // customization attributes
-  );
-  // google.accounts.id.prompt(); // also display the One Tap dialog
 }
