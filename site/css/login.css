@@ -136,6 +136,10 @@ img {
   margin: 15px 0;
 }
 
+.login-input:focus {
+  color: #333;
+}
+
 .login-form {
   position: relative;
   top: 60px;
