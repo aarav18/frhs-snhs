@@ -45,8 +45,3 @@ if (window.location.href == "https://aarav18-snhs.netlify.app/login.html") {
   }
   // google.accounts.id.prompt(); // also display the One Tap dialog
 }
-
-export function signOut() {
-  document.cookie = document.cookie.replace("CrewCentreSession=Valid", "");
-  window.location.href = "https://aarav18-snhs.netlify.app/login.html";
-}
