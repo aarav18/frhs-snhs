@@ -49,4 +49,4 @@ window.onload = function () {
   // google.accounts.id.prompt(); // also display the One Tap dialog
 }
 
-module.exports = { signOut };
+export default signOut;
