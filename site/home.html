@@ -13,7 +13,7 @@
   <script src="js/reload.js"></script>
   <script src="js/redirect.js"></script>
 
-  <script type="module" src="js/logout.js"></script>
+  <script src="js/logout.js"></script>
 
   <title>Home • FRHS SNHS</title>
   <link rel="icon" type="image/x-icon" href="images/logo.jpg">
@@ -42,7 +42,7 @@
             <div class="sliding-border"></div>
           </div>
 
-          <button class="btn btn-primary sign-out">Sign Out</button>
+          <button onclick="signOut();" class="btn btn-primary sign-out">Sign Out</button>
 
         </ul>
       </nav>
@@ -70,7 +70,7 @@
           <div class="form-control">
             <input type="email" name="email" placeholder="Email" required>
           </div>
-          <input onclick="signOut();" type="submit" value="Send" class="btn btn-primary">
+          <input type="submit" value="Send" class="btn btn-primary">
         </form>
       </div>
     </div>
