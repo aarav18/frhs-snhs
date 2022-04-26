@@ -30,7 +30,7 @@ function handleCredentialResponse(response) {
   window.location.href = "https://aarav18-snhs.netlify.app/home.html";
 }
 
-function signOut() {
+export function signOut() {
   document.cookie = document.cookie.replace("CrewCentreSession=Valid", "");
   window.location.href = "https://aarav18-snhs.netlify.app/login.html";
 }
@@ -48,5 +48,3 @@ window.onload = function () {
   );
   // google.accounts.id.prompt(); // also display the One Tap dialog
 }
-
-export default signOut;

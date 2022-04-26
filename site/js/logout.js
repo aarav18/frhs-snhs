@@ -1,5 +1,5 @@
-import { signOut } from "./login";
+// import { signOut } from "./login";
 
-document.getElementsByClassName("sign-out").onclick = function() {
-  signOut();
-}
+// document.getElementsByClassName("sign-out").onclick = function() {
+//   signOut();
+// }
