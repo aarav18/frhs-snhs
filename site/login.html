@@ -25,7 +25,7 @@
 
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="400237668286-4l755cng626bfg4pp3qcf3d2hh0ffg36.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
 </head>
 <body>
 
@@ -46,10 +46,29 @@
 
         <input type="email" class="login-input" placeholder="Email" autocomplete="off">
         <input type="text" class="login-input" placeholder="Password" autocomplete="off">
-      <button id="signin-button" data-onsuccess="onSignIn" data-theme="light" class="btn btn-primary"><i class="fa-brands fa-google"></i>Login</button>
+        <!-- <button id="signin-button" class="g_id_signin"
+        data-logo_alignment="left" data-onsuccess="onSignIn" data-theme="light" class="btn btn-primary"><i class="fa-brands fa-google"></i>Sign in with Google</button> -->
+        <!-- <div id="signin-button" class="g-signin2" data-onsuccess="onSignIn" data-theme="light"></div> -->
+        <div id="g_id_onload"
+        data-client_id="400237668286-4l755cng626bfg4pp3qcf3d2hh0ffg36.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-login_uri="aarav18-snhs.netlify.app"
+        data-auto_prompt="false">
+   </div>
+   
+   <div class="g_id_signin"
+        data-type="standard"
+        data-shape="rectangular"
+        data-theme="outline"
+        data-text="signin_with"
+        data-size="large"
+        data-logo_alignment="left"
+        data-width="230">
+   </div>
+
         <input type="submit" value="Login" class="btn btn-primary" autocomplete="off">
 
-        <div id="signin-button" class="g-signin2" data-onsuccess="onSignIn" data-theme="light"></div>
         <!-- <script>
           function onSignIn(googleUser) {
             // Useful data for your client-side scripts:

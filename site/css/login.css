@@ -106,7 +106,6 @@ img {
 	}
 }
 
-
 .login p {
   margin: 20px 0;
 
@@ -140,7 +139,7 @@ img {
 .login-form {
   position: relative;
   top: 60px;
-  height: 300px;
+  height: 350px;
   width: 400px;
   padding: 40px;
   z-index: 100;
@@ -172,11 +171,9 @@ img {
 }
 
 .btn {
-  /* padding: 100px; */
-  margin-left: 10px;
-  margin-top: 20px;
-  background-color: white;
-  color: var(--primary-color);
+  margin-top: 40px;
+  color: white;
+  background-color: var(--primary-color);
 
   animation: fadeInAnimation ease 3s;
 	animation-iteration-count: 1;
