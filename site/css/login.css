@@ -148,7 +148,11 @@ img {
   padding: 40px;
   z-index: 100;
   justify-self: flex-end;
-  animation: slideInFromRight 1s ease;
+
+  animation: bounceInRight; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1.3s; /* don't forget to set a duration! */
+
+  /* animation: slideInFromRight 1s ease; */
 }
 
 .fa-google {
@@ -179,9 +183,9 @@ img {
   color: white;
   background-color: var(--primary-color);
 
-  animation: fadeInAnimation ease 3s;
+  /* animation: fadeInAnimation ease 3s;
 	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+	animation-fill-mode: forwards; */
 }
 
 /* animations */
