@@ -1,10 +1,5 @@
 document.documentElement.classList.remove("no-js");
 
-// if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
-//   // location.href = "/site/login.html";
-//   location.href = "/login";
-// }
-
 function decodeJwtResponse(token) {
   var base64Url = token.split('.')[1];
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -27,6 +22,11 @@ function handleCredentialResponse(response) {
   console.log("Email: " + responsePayload.email);
 
   // redirect
+  var sessionTimeout = 1; //hours
+  var loginDuration = new Date();
+  loginDuration.setTime(loginDuration.getTime()+(sessionTimeout*60*60*1000));
+  document.cookie = "CrewCentreSession=Valid; "+loginDuration.toGMTString()+"; path=/";
+  
   window.location.href = "https://aarav18-snhs.netlify.app/home.html";
 }
 
