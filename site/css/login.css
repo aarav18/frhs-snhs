@@ -127,17 +127,13 @@ img {
 .login-input {
   width: 320px;
   height: 26.33px;
-  color: #848484;
+  color: black;
   padding: 3px;
   font-family: "Lato", sans-serif;
   font-size: 16px;
   border: none;
   border-bottom: 1px solid #b4becb;
   margin: 15px 0;
-}
-
-.login-input:focus {
-  color: black;
 }
 
 .login-form {
